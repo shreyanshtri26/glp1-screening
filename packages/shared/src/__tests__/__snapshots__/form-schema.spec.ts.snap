@@ -1,0 +1,111 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FORM_SCHEMA — snapshot > matches snapshot 1`] = `
+[
+  {
+    "branchCount": 1,
+    "id": 1,
+    "key": "age",
+    "optionCount": 0,
+    "type": "number",
+  },
+  {
+    "branchCount": 0,
+    "id": 2,
+    "key": "weight",
+    "optionCount": 0,
+    "type": "number",
+  },
+  {
+    "branchCount": 0,
+    "id": 3,
+    "key": "height",
+    "optionCount": 0,
+    "type": "number",
+  },
+  {
+    "branchCount": 2,
+    "id": 4,
+    "key": "bmi",
+    "optionCount": 0,
+    "type": "computed",
+  },
+  {
+    "branchCount": 1,
+    "id": 5,
+    "key": "pregnant",
+    "optionCount": 2,
+    "type": "radio",
+  },
+  {
+    "branchCount": 0,
+    "id": 6,
+    "key": "comorbidities",
+    "optionCount": 5,
+    "type": "checkbox",
+  },
+  {
+    "branchCount": 1,
+    "id": 7,
+    "key": "diabetes",
+    "optionCount": 2,
+    "type": "radio",
+  },
+  {
+    "branchCount": 1,
+    "id": 8,
+    "key": "hba1c",
+    "optionCount": 0,
+    "type": "number",
+  },
+  {
+    "branchCount": 0,
+    "id": 9,
+    "key": "bloodPressure",
+    "optionCount": 5,
+    "type": "checkbox",
+  },
+  {
+    "branchCount": 1,
+    "id": 10,
+    "key": "medications",
+    "optionCount": 5,
+    "type": "checkbox",
+  },
+  {
+    "branchCount": 0,
+    "id": 11,
+    "key": "smoking",
+    "optionCount": 2,
+    "type": "radio",
+  },
+  {
+    "branchCount": 0,
+    "id": 12,
+    "key": "alcoholFrequency",
+    "optionCount": 4,
+    "type": "radio",
+  },
+  {
+    "branchCount": 0,
+    "id": 13,
+    "key": "activityLevel",
+    "optionCount": 4,
+    "type": "radio",
+  },
+  {
+    "branchCount": 0,
+    "id": 14,
+    "key": "diet",
+    "optionCount": 5,
+    "type": "checkbox",
+  },
+  {
+    "branchCount": 0,
+    "id": 15,
+    "key": "evaluation",
+    "optionCount": 0,
+    "type": "computed",
+  },
+]
+`;

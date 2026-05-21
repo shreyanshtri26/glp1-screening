@@ -1,0 +1,39 @@
+{
+  "name": "@glp1/api",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "nest build",
+    "start": "node dist/main",
+    "start:dev": "nest start --watch",
+    "start:prod": "node dist/main",
+    "test:unit": "vitest run",
+    "test:unit:watch": "vitest",
+    "test:cov": "vitest run --coverage",
+    "lint": "eslint src --ext .ts"
+  },
+  "dependencies": {
+    "@glp1/shared": "workspace:*",
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/config": "^4.0.0",
+    "@nestjs/core": "^11.0.0",
+    "@nestjs/platform-express": "^11.0.0",
+    "@prisma/client": "^6.0.0",
+    "reflect-metadata": "^0.2.0",
+    "rxjs": "^7.8.0"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^11.0.0",
+    "@nestjs/schematics": "^11.0.0",
+    "@nestjs/testing": "^11.0.0",
+    "@swc/core": "^1.15.33",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.0.0",
+    "@vitest/coverage-v8": "^2.0.0",
+    "prisma": "^6.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.4.0",
+    "unplugin-swc": "^1.5.9",
+    "vitest": "^2.0.0"
+  }
+}
