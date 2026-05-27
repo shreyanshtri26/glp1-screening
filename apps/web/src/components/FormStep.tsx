@@ -60,7 +60,7 @@ export function FormStep({ step, totalInputScreens, initialValue, onSubmit }: Fo
 
       <h2
         id={`step-${step.id}-label`}
-        className="text-xl font-semibold text-gray-800 mb-6"
+        className="text-2xl font-extrabold text-gray-900 leading-snug tracking-tight mb-8"
         data-testid="step-prompt"
       >
         {step.prompt}
@@ -95,17 +95,20 @@ export function FormStep({ step, totalInputScreens, initialValue, onSubmit }: Fo
       )}
 
       {error && (
-        <p role="alert" className="text-red-600 text-sm mt-2" data-testid="step-error">
-          {error}
-        </p>
+        <div role="alert" className="flex items-center gap-2 text-red-600 text-sm font-semibold mt-4 p-4 bg-red-50 border border-red-100 rounded-2xl" data-testid="step-error">
+          <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+          <span>{error}</span>
+        </div>
       )}
 
-      <div className="mt-8 flex gap-3">
+      <div className="mt-10 flex gap-4">
         <button
           type="submit"
           disabled={loading}
           data-testid="step-submit"
-          className="flex-1 bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 disabled:opacity-50 transition-colors"
+          className="flex-1 bg-gradient-to-r from-brand-coral to-[#f59e7a] text-white py-4 px-6 rounded-2xl font-bold tracking-wide shadow-lg shadow-brand-coral/20 hover:brightness-105 active:scale-[0.985] disabled:opacity-50 disabled:pointer-events-none transition-all duration-200 flex items-center justify-center gap-2"
         >
           {loading ? 'Saving…' : 'Continue'}
         </button>
@@ -114,7 +117,7 @@ export function FormStep({ step, totalInputScreens, initialValue, onSubmit }: Fo
             type="button"
             onClick={() => onSubmit([])}
             data-testid="step-skip"
-            className="px-4 py-3 rounded-lg border border-gray-300 text-gray-600 hover:bg-gray-50 transition-colors"
+            className="px-6 py-4 rounded-2xl bg-brand-gold/10 border border-brand-gold/80 text-gray-700 hover:bg-brand-gold/25 font-bold transition-all duration-200"
           >
             Skip
           </button>

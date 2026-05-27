@@ -1,4 +1,4 @@
-# GLP-1 Eligibility Screening — PhoenixLabs Assignment
+# GLP-1 
 
 A full-stack 15-screen conditional eligibility form for GLP-1 weight-loss medication, built as a pnpm monorepo.
 
@@ -43,24 +43,51 @@ cd glp1-screening
 pnpm install
 ```
 
+> [!NOTE]
+> If using **pnpm v10+**, you may see a warning about blocked build scripts. Run `pnpm approve-builds` to whitelist `@nestjs/core`, `@prisma/client`, and other dependencies.
+
 ### 2. Start PostgreSQL
 
+Choose **one** of the two database setups below:
+
+#### Option A: Docker (Standard)
+If Docker Desktop is running, start the container:
 ```bash
 docker compose up -d
 ```
 
+#### Option B: Local PostgreSQL Fallback (If Docker is not running)
+If Docker is not available or your system port `5432` is occupied by another Postgres service, you can spin up a new local cluster on port `5433`:
+1. Initialize a new cluster in the repository:
+   ```bash
+   initdb -D ./db-data -U postgres --auth=trust
+   ```
+2. Open `./db-data/postgresql.conf` and set:
+   ```conf
+   port = 5433
+   ```
+3. Start the instance:
+   ```bash
+   pg_ctl -D ./db-data -l ./db-data/logfile start
+   ```
+
 ### 3. Configure environment
 
-```bash
-cp .env.example apps/api/.env
-# Default values work with docker-compose
-```
+1. Copy the environment file:
+   ```bash
+   cp .env.example apps/api/.env
+   ```
+2. If using the **Docker** setup, keep the default values. If using the **Local Fallback** setup, update `DATABASE_URL` in `apps/api/.env` to:
+   ```env
+   DATABASE_URL="postgresql://postgres@127.0.0.1:5433/glp1db"
+   ```
 
 ### 4. Run database migrations
 
+Initialize the database schema:
 ```bash
 cd apps/api
-npx prisma migrate dev --name init
+npx prisma db push
 cd ../..
 ```
 
@@ -87,7 +114,7 @@ Open http://localhost:3000
 ### Unit tests (all packages)
 
 ```bash
-pnpm --filter @glp1/shared test:unit
+pnpm --filter @glp1/shared test
 pnpm --filter @glp1/api test:unit
 pnpm --filter @glp1/web test:unit
 ```

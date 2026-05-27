@@ -26,10 +26,10 @@ export function NumberInput({ id, label, value, onChange, min, max, step = 0.1, 
           step={step}
           placeholder={`Enter value${unit ? ` (${unit})` : ''}`}
           data-testid={`number-input-${id}`}
-          className="w-full border border-gray-300 rounded-lg px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full border border-gray-200 bg-gray-50/20 rounded-2xl px-5 py-4 text-xl font-medium focus:outline-none focus:ring-2 focus:ring-brand-teal focus:border-brand-teal focus:bg-white shadow-sm transition-all duration-300"
         />
         {unit && (
-          <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 font-medium">
+          <span className="absolute right-5 top-1/2 -translate-y-1/2 text-brand-coral font-bold bg-brand-cream/80 border border-brand-teal/20 px-3 py-1.5 rounded-xl text-xs uppercase tracking-wider">
             {unit}
           </span>
         )}

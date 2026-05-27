@@ -22,25 +22,55 @@ export function CheckboxInput({ id, options, value, onChange }: CheckboxInputPro
   };
 
   return (
-    <fieldset data-testid={`checkbox-group-${id}`}>
+    <fieldset data-testid={`checkbox-group-${id}`} className="space-y-3">
       <legend className="sr-only">Select all that apply</legend>
-      {options.map((opt) => (
-        <label
-          key={opt.value}
-          className="flex items-center gap-3 p-3 mb-2 rounded-lg border border-gray-200 cursor-pointer hover:bg-blue-50 transition-colors"
-          data-testid={`checkbox-option-${opt.value}`}
-        >
-          <input
-            type="checkbox"
-            name={id}
-            value={opt.value}
-            checked={value.includes(opt.value)}
-            onChange={() => toggle(opt.value)}
-            className="w-4 h-4 text-blue-600 rounded"
-          />
-          <span className="text-gray-800">{opt.label}</span>
-        </label>
-      ))}
+      {options.map((opt) => {
+        const isChecked = value.includes(opt.value);
+        return (
+          <label
+            key={opt.value}
+            className={`flex items-center gap-4 p-4 rounded-2xl border cursor-pointer transition-all duration-300 ${
+              isChecked
+                ? 'border-brand-teal bg-brand-cream/40 shadow-md shadow-brand-teal/10 scale-[1.005]'
+                : 'border-gray-100 bg-gray-50/30 hover:bg-brand-cream/30 hover:border-brand-teal/50 shadow-sm'
+            }`}
+            data-testid={`checkbox-option-${opt.value}`}
+          >
+            <div className="relative flex items-center justify-center">
+              <input
+                type="checkbox"
+                name={id}
+                value={opt.value}
+                checked={isChecked}
+                onChange={() => toggle(opt.value)}
+                className="sr-only"
+              />
+              <div
+                className={`w-5 h-5 rounded-md border flex items-center justify-center transition-all duration-300 ${
+                  isChecked
+                    ? 'border-brand-teal bg-brand-teal shadow-inner'
+                    : 'border-gray-300 bg-white hover:border-brand-teal/80'
+                }`}
+              >
+                {isChecked && (
+                  <svg
+                    className="w-3.5 h-3.5 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    strokeWidth="3"
+                  >
+                    <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                )}
+              </div>
+            </div>
+            <span className={`text-base transition-colors duration-200 ${isChecked ? 'text-gray-900 font-semibold' : 'text-gray-700'}`}>
+              {opt.label}
+            </span>
+          </label>
+        );
+      })}
     </fieldset>
   );
 }

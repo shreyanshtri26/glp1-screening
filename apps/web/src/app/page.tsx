@@ -36,7 +36,7 @@ export default function HomePage() {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="flex items-center justify-center min-h-[50vh]">
+    <div className="flex items-center justify-center min-h-[50vh]" suppressHydrationWarning>
       <p className="text-gray-400 animate-pulse">Loading…</p>
     </div>
   );

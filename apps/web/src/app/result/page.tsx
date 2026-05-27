@@ -27,7 +27,7 @@ export default function ResultPage() {
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm p-8">
+    <div className="bg-white/90 backdrop-blur-xl border border-white/60 rounded-[2rem] shadow-xl shadow-brand-coral/5 p-8 md:p-10 transition-all duration-300">
       <ResultScreen result={result} onStartOver={handleStartOver} />
     </div>
   );

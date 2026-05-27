@@ -32,13 +32,13 @@ export default function FormStepPage() {
 
     const { next } = await submitAnswer(sessionId, step.id, value);
 
-    if ('outcome' in next) {
+    if (next.type === 'result') {
       // Final result
-      setResult(next);
+      setResult({ outcome: next.outcome, reason: next.reason });
       router.push('/result');
     } else {
-      setCurrentStep(next.id);
-      router.push(`/form/${next.id}`);
+      setCurrentStep(next.step.id);
+      router.push(`/form/${next.step.id}`);
     }
   };
 
@@ -51,7 +51,7 @@ export default function FormStepPage() {
   }
 
   return (
-    <div className="bg-white rounded-2xl shadow-sm p-8">
+    <div className="bg-white/90 backdrop-blur-xl border border-white/60 rounded-[2rem] shadow-xl shadow-brand-coral/5 p-8 md:p-10 transition-all duration-300 transform hover:scale-[1.005]">
       <FormStep
         step={step}
         totalInputScreens={TOTAL_INPUT_SCREENS}
