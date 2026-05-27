@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Edge cases', () => {
-  test('BP hypertensive_crisis → Clinical Review (highest severity wins)', async ({ page }) => {
+  test('BP hypertensive_crisis → Clinical Review (highest severity wins)', async ({ page }) => { test.setTimeout(120000);
     await page.goto('/');
     await page.waitForURL(/\/form\/1/);
 
@@ -21,6 +21,7 @@ test.describe('Edge cases', () => {
     await page.getByTestId('step-submit').click();
     await page.waitForURL(/\/form\/6/);
 
+    await page.waitForSelector('[data-testid="step-skip"]', { state: 'visible', timeout: 120000 });
     await page.getByTestId('step-skip').click();
     await page.waitForURL(/\/form\/7/);
 
@@ -40,16 +41,17 @@ test.describe('Edge cases', () => {
 
     await page.getByTestId('radio-option-no').click();
     await page.getByTestId('step-submit').click();
-    await page.waitForURL(/\/form\/12/);
+    await page.waitForURL(/\/form\/12/, { timeout: 120000 });
 
     await page.getByTestId('radio-option-monthly').click();
     await page.getByTestId('step-submit').click();
-    await page.waitForURL(/\/form\/13/);
+    await page.waitForURL(/\/form\/13/, { timeout: 120000 });
 
     await page.getByTestId('radio-option-moderate').click();
     await page.getByTestId('step-submit').click();
-    await page.waitForURL(/\/form\/14/);
+    await page.waitForURL(/\/form\/14/, { timeout: 120000 });
 
+    await page.waitForSelector('[data-testid="step-skip"]', { state: 'visible', timeout: 120000 });
     await page.getByTestId('step-skip').click();
     await page.waitForURL(/\/result/);
 

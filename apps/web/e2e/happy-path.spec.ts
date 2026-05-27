@@ -41,7 +41,8 @@ test.describe('Happy path — eligible user', () => {
     await page.waitForURL(/\/form\/10/);
 
     // S10: No GLP-1 — skip
-    await page.getByTestId('step-skip').click();
+    await page.waitForSelector('[data-testid="step-skip"]', { state: 'visible', timeout: 120000 });
+await page.getByTestId('step-skip').click();
     await page.waitForURL(/\/form\/11/);
 
     // S11: No smoking

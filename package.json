@@ -2,7 +2,7 @@
   "name": "glp1-screening",
   "private": true,
   "scripts": {
-    "dev": "pnpm --parallel --filter './apps/*' dev",
+    "dev": "pnpm --parallel --filter \"./apps/*\" dev",
     "build": "pnpm --filter shared build && pnpm --parallel --filter './apps/*' build",
     "test:unit": "pnpm --recursive --filter './packages/*' test && pnpm --recursive --filter './apps/*' test:unit",
     "test:e2e": "pnpm --filter web test:e2e",
