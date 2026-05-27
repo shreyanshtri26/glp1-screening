@@ -25,12 +25,8 @@ export default function HomePage() {
       // Start a new session
       const { sessionId: id, step } = await startSession();
       setSessionId(id);
-      if ('outcome' in step) {
-        router.replace('/result');
-      } else {
-        setCurrentStep(step.id);
-        router.replace(`/form/${step.id}`);
-      }
+      setCurrentStep(step.id);
+      router.replace(`/form/${step.id}`);
     }
     init();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps

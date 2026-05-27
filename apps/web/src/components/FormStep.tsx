@@ -90,7 +90,7 @@ export function FormStep({ step, totalInputScreens, initialValue, onSubmit }: Fo
           onChange={setValue}
           min={step.validation?.min}
           max={step.validation?.max}
-          unit={step.unit}
+          unit={step.key === 'weight' ? 'kg' : step.key === 'height' ? 'cm' : step.key === 'hba1c' ? '%' : undefined}
         />
       )}
 

@@ -1,10 +1,10 @@
-import type { EligibilityResult, StepOrResult } from '@glp1/shared';
+import type { EligibilityResult, StepOrResult, FormStep } from '@glp1/shared';
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3001/api';
 
 export interface StartSessionResponse {
   sessionId: string;
-  step: StepOrResult;
+  step: FormStep;
 }
 
 export interface SubmitAnswerResponse {

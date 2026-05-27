@@ -56,12 +56,12 @@ export const useFormStore = create<FormStore>()(
     }),
     {
       name: 'glp1-form',
-      partialState: (state) => ({
+      partialize: (state) => ({
         sessionId: state.sessionId,
         currentStep: state.currentStep,
         answers: state.answers,
         result: state.result,
       }),
-    } as Parameters<typeof persist>[1],
+    },
   ),
 );
