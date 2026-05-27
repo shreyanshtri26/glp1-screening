@@ -19,7 +19,7 @@ jobs:
           node-version: '20'
 
       - name: Install pnpm
-        run: npm i -g pnpm@9
+        run: npm i -g pnpm@10
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -28,7 +28,7 @@ jobs:
         run: pnpm --filter @glp1/shared build
 
       - name: Unit tests — shared
-        run: pnpm --filter @glp1/shared test:unit
+        run: pnpm --filter @glp1/shared test
 
       - name: Unit tests — api
         run: pnpm --filter @glp1/api test:unit
@@ -64,7 +64,7 @@ jobs:
           node-version: '20'
 
       - name: Install pnpm
-        run: npm i -g pnpm@9
+        run: npm i -g pnpm@10
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
